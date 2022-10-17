@@ -9,33 +9,44 @@
         <script type="text/javascript" src="ajs/bootstrap.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
+
+        <style>
+          #bor:hover{
+            border-radius:15px;
+          }
+        </style>
     </head>
-    <body>
-        <br><br><br><br><br>
-        <div class="row align-items-center">
-            <div class="col">
+    <body style="background-color:darkcyan">
+      <div class="container" style="margin:150px auto;">
+        <div class="row">
+          <div class="col">
+            
+          </div>
+          <div class="col-6" style="background-color:darkseagreen; border-radius:30px; padding:1rem">
+            <form class="px-4 py-3">
+              <div class="form-group">
+                <label for="exampleDropdownFormEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+              </div>
+              <div class="form-group">
+                <label for="exampleDropdownFormPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+              </div>
+              <div class="form-check" style="padding-bottom:5px">
+                <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                <label class="form-check-label" for="dropdownCheck">
+                  Remember me
+                </label>
+              </div>
+              <button type="submit" class="btn btn-primary">Sign in</button>
+            </form>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="bor">New around here? Sign up</a>
             </div>
-            <div class="col">
-                <form>
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Email address</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword1">Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1">
-                    </div>
-                    <div class="form-group form-check">
-                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                      <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-            </div>
-            <div class="col">
-            </div>
+          <div class="col">
+
+          </div>
         </div>
-        
+      </div>
     </body>
 </html>
