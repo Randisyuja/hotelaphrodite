@@ -1,8 +1,8 @@
 <?php
 $koneksi=mysqli_connect("localhost","root","","percobaanhotel");
-if(!$koneksi){
+if($koneksi){
+    
+} else{
     echo "koneksi tidak berhasil";
 }
-
-
 ?>
