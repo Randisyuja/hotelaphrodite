@@ -1,6 +1,8 @@
 <?php
 
 session_start();
+$username="";
+$username1=$_SESSION["name"];
 ?>
 
 <!DOCTYPE html>
@@ -40,21 +42,24 @@ session_start();
                             <a class="dropdown-item" href="swiss.php">Switzerland</a>
                         </div>
                     </li>
-                    <li class="nav-item dropdown">
+                    <?php
+                    if ($username==$username1){
+                        echo '<li class="nav-item">
+                        <a class="nav-link" href="login.php">Login</a>
+                        </li>';
+                    }else{
+                        echo '<li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                        <?php 
-                            if(session_is_registered()){
-                                echo ($_SESSION["name"]);
-                            }else{
-                                echo "<a>Login</a>";
-                            }
-                        ?>
+                            '.$username1.'
                         </a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="profile.php">My Profile</a>
                             <a class="dropdown-item" href="logout.php">Logout</a>
                         </div>
-                    </li>
+                        </li>';
+                    }
+                    ?>
+                    
                 </ul>
             </div>
         </nav>
