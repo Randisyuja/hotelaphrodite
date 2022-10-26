@@ -25,14 +25,14 @@ $username1=$_SESSION["name"];
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="border-bottom:2px solid ">
-            <a class="navbar-brand" href="#">Hotel Aphrodite</a>
+            <a class="navbar-brand" href="index.php">Hotel Aphrodite</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="facilities.html">Facilities</a>
@@ -71,32 +71,22 @@ $username1=$_SESSION["name"];
         <br><br><br><br>
         <form action="test.php" method="post">
             <div class="container" style="background-color:lightgrey; border-radius:15px;">
-                <?php
-                    if ($result->num_rows > 0) {
-                        $row = mysqli_fetch_assoc($result);
-                        for ($i=0; $i=$row->num_row; $i-- ){
-                            $var='<div class="row">
-                                <div class="col-sm">
-                                    <img class="img-fluid" src="img/'.$row["image"].'" style="padding:10px;padding-top:20px; background-color:lightgrey;border:0; border-radius:15px;">
-                                </div>
-                                <div class="col-sm">
-                                    <br>
-                                    <h3 class="text-center">'.$row["tipe_kamar"].'</h3>
-                                </div>
-                                <div class="col align-self-center">
-                                    <p class="text-center">'.$row["harga"].'</p>
-                                    <button class="btn btn-primary" type="submit" value="Double Bed Room" name="roomtype1">Book Now</button>
-                                </div>
-                            </div>';
-
-                        echo $var;
-                        }
-                        
-                        
-                    } else {
-                        echo "<script>alert('Email atau password Anda salah. Silahkan coba lagi!')</script>";
-                    }
-                ?>
+                <?php while($row=mysqli_fetch_assoc($result)) : ?>
+                <div class="row">
+                    <div class="col-sm">
+                        <img class="img-fluid" src="img/<?php echo $row["image"];?>" style="margin-top:15px; margin-bottom:15px; padding:10px;padding-top:10px; background-color:lightgrey;border:0; border-radius:20px; width:400px; height:200px;  ">
+                    </div>
+                    <div class="col-sm">
+                        <br>
+                        <h3 class="text-center"><?php echo $row["tipe_kamar"];?></h3>
+                        <div><?php echo $row["deskripsi"];?></div>
+                    </div>
+                    <div class="col align-self-center">
+                        <p class="text-center"><?php echo $row["harga"];?></p>
+                        <button class="btn btn-primary" type="submit" value="Double Bed Room" name="roomtype1">Book Now</button>
+                    </div>
+                </div>
+                <?php endwhile; ?>
             </div>
         </form>
     </body>
