@@ -20,10 +20,10 @@ if (isset($_POST['submit'])) {
     $sex=$_POST["sex"];
  
     if ($password == $cpassword) {
-        $sql = "SELECT * FROM accounts WHERE email='$email'";
+        $sql = "SELECT * FROM admin WHERE email='$email'";
         $result = mysqli_query($koneksi, $sql);
         if (!$result->num_rows > 0) {
-            $sql = "INSERT INTO accounts VALUES ('', '$name', '$email', '$password', '$add', '$city', '$reli', '$sex')";
+            $sql = "INSERT INTO admin VALUES ('', '$name', '$email', '$password', '$add', '$city', '$reli', '$sex')";
             $result = mysqli_query($koneksi, $sql);
             if ($result) {
                 echo "<script>alert('Selamat, registrasi berhasil!')</script>";
@@ -84,7 +84,7 @@ if (isset($_POST['submit'])) {
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="login.php" id="login">Login <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="loginadmin.php" id="login">Login <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
         </div>
