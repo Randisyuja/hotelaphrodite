@@ -2,7 +2,7 @@
 
 include "koneksi.php";
 
-$sql="SELECT * FROM kamar_indo";
+$sql="SELECT * FROM indonesia";
 $result=mysqli_query($koneksi, $sql);
 
 session_start();

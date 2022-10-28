@@ -1,12 +1,15 @@
-<?php
+<?php 
+ 
+include 'koneksi.php';
 
 session_start();
 $username="";
 $username1=$_SESSION["name"];
 
 if ($username==$username1){
-    header("Location:loginadmin.php");
+    header("Location: adminlogin.php");
 }
+ 
 ?>
 
 <!DOCTYPE html>
@@ -35,36 +38,18 @@ if ($username==$username1){
                         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="facilities.html">Facilities</a>
+                        <a class="nav-link" href="admininput.php">Input</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
                         Branch
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="indo.php">Indonesia</a>
-                            <a class="dropdown-item" href="japan.php">Japan</a>
-                            <a class="dropdown-item" href="swiss.php">Switzerland</a>
+                            <a class="dropdown-item" href="">Profile</a>
+                            <a class="dropdown-item" href="">Room in use</a>
+                            <a class="dropdown-item" href="adminlogout.php">Logout</a>
                         </div>
                     </li>
-                    <?php
-                    if ($username==$username1){
-                        echo '<li class="nav-item">
-                        <a class="nav-link" href="login.php">Login</a>
-                        </li>';
-                    }else{
-                        echo '<li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                            '.$username1.'
-                        </a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="profile.php">My Profile</a>
-                            <a class="dropdown-item" href="logout.php">Logout</a>
-                        </div>
-                        </li>';
-                    }
-                    ?>
-                    
                 </ul>
             </div>
         </nav>

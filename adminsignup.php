@@ -4,7 +4,7 @@ include 'koneksi.php';
  
  
 if (isset($_SESSION['name'])) {
-    header("Location: login.php");
+    header("Location: adminlogin.php");
 }
  
 if (isset($_POST['submit'])) {
@@ -84,7 +84,7 @@ if (isset($_POST['submit'])) {
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="loginadmin.php" id="login">Login <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="adminlogin.php" id="login">Login <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
         </div>

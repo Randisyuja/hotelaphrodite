@@ -89,7 +89,7 @@ if (isset($_POST['submit'])) {
               <button type="submit" class="btn btn-primary" name="submit">Sign in</button>
             </form>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="signupadmin.php" id="bor">New around here? Sign up</a>
+            <a class="dropdown-item" href="adminsignup.php" id="bor">New around here? Sign up</a>
             </div>
           <div class="col">
 
