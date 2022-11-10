@@ -1,6 +1,6 @@
 <?php
 
-include "koneksi.php";
+include "../koneksi.php";
 
 $sql="SELECT * FROM indonesia";
 $result=mysqli_query($koneksi, $sql);
@@ -19,9 +19,15 @@ $username1=$_SESSION["name"];
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script type="text/javascript" src="ajs/bootstrap.js"></script>
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>
-        <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="../ajs/bootstrap.js"></script>
+        <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+        <link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet">
+
+        <style>
+          body{
+            background-image:url(../img/bgindo.jpg);
+          }
+        </style>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="border-bottom:2px solid ">
@@ -32,7 +38,7 @@ $username1=$_SESSION["name"];
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="../index.php">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="facilities.html">Facilities</a>
@@ -74,7 +80,7 @@ $username1=$_SESSION["name"];
                 <?php while($row=mysqli_fetch_assoc($result)) : ?>
                 <div class="row">
                     <div class="col-sm">
-                        <img class="img-fluid" src="img/<?php echo $row["image"];?>" style="margin-top:15px; margin-bottom:15px; padding:10px;padding-top:10px; background-color:lightgrey;border:0; border-radius:20px; width:400px; height:200px;  ">
+                        <img class="img-fluid" src="../img/<?php echo $row["image"];?>" style="margin-top:15px; margin-bottom:15px; padding:10px;padding-top:10px; background-color:lightgrey;border:0; border-radius:20px; width:400px; height:200px;  ">
                     </div>
                     <div class="col-sm">
                         <br>

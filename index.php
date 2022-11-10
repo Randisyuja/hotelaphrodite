@@ -30,22 +30,22 @@ $username1=$_SESSION["name"];
                         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="facilities.html">Facilities</a>
+                        <a class="nav-link" href="users/facilities.html">Facilities</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
                         Branch
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="indo.php">Indonesia</a>
-                            <a class="dropdown-item" href="japan.php">Japan</a>
-                            <a class="dropdown-item" href="swiss.php">Switzerland</a>
+                            <a class="dropdown-item" href="users/indo.php">Indonesia</a>
+                            <a class="dropdown-item" href="users/japan.php">Japan</a>
+                            <a class="dropdown-item" href="users/swiss.php">Switzerland</a>
                         </div>
                     </li>
                     <?php
                     if ($username==$username1){
                         echo '<li class="nav-item">
-                        <a class="nav-link" href="login.php">Login</a>
+                        <a class="nav-link" href="users/login.php">Login</a>
                         </li>';
                     }else{
                         echo '<li class="nav-item dropdown">
@@ -53,8 +53,8 @@ $username1=$_SESSION["name"];
                             '.$username1.'
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="profile.php">My Profile</a>
-                            <a class="dropdown-item" href="logout.php">Logout</a>
+                            <a class="dropdown-item" href="users/profile.php">My Profile</a>
+                            <a class="dropdown-item" href="users/logout.php">Logout</a>
                         </div>
                         </li>';
                     }
@@ -71,7 +71,7 @@ $username1=$_SESSION["name"];
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="img/raja ampat.jpg" class="d-block w-100" alt="...">
+                    <img src="img/homebali.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>INDONESIA</h5>
                         <p>Some representative placeholder content for the first slide.</p>
