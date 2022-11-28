@@ -2,10 +2,7 @@
  
 include '../koneksi.php';
  
- 
-if (isset($_SESSION['name'])) {
-    header("Location: adminlogin.php");
-}
+
  
 if (isset($_POST['submit'])) {
     $nik=$_POST["nik"];

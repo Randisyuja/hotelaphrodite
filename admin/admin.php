@@ -3,10 +3,10 @@
 include '../koneksi.php';
 
 session_start();
-$username="";
-$username1=$_SESSION["name"];
+$username2="";
+$username3=$_SESSION["session_username"];
 
-if ($username==$username1){
+if ($username2==$username3){
     header("Location: adminlogin.php");
 }
  
@@ -52,7 +52,7 @@ if ($username==$username1){
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                        <?php echo($username1); ?>
+                        <?php echo($username3); ?>
                         </a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="">Profile</a>

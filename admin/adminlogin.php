@@ -6,10 +6,9 @@ error_reporting(0);
  
 session_start();
 
- 
-if (isset($_SESSION['name'])) {
-    header("Location:admin.php");
-}
+if (isset($_SESSION['session_username'])) {
+  header("Location:admin.php");
+} 
  //button dipencet ambil data dari form dimasukkan ke var  dan akan dicek dengan kode di var result
 if (isset($_POST['submit'])) {
     $email = $_POST['email'];
@@ -19,7 +18,7 @@ if (isset($_POST['submit'])) {
     $result = mysqli_query($koneksi, $sql);
     if ($result->num_rows > 0) {
         $row = mysqli_fetch_assoc($result);
-        $_SESSION['name'] = $row['name'];
+        $_SESSION['session_username'] = $row['name'];
         header("Location: admin.php");
     } else {
         echo "<script>alert('Email atau password Anda salah. Silahkan coba lagi!')</script>";
