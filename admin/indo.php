@@ -29,6 +29,8 @@ if (isset($_POST['submit'])) {
     }
 }
 
+
+
 if (isset($_POST['delete'])) {
     $kodekamar=$_POST['delete'];
     $sql="DELETE FROM $branch WHERE kode_kamar='$kodekamar'";
@@ -121,7 +123,7 @@ if (isset($_POST['delete'])) {
                             <p class="text-center"><?php echo $row["harga"];?></p>
                             <div align="center">
                                 <form action=updateroom.php method="get">
-                                <button class="btn btn-primary" type="submit" name="update" value=<?php echo($row["kode_kamar"]); ?>>Update</button>
+                                    <button class="btn btn-primary" type="submit" name="update" value=<?php echo($row["kode_kamar"]); ?>>Update</button>
                                 </form>
                                 <br>
                                 <form action="" method="post">

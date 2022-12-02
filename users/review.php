@@ -3,11 +3,11 @@
 include '../koneksi.php';
 
 session_start();
-$username2="";
-$username3=$_SESSION["session_username"];
+$name="";
+$name0=$_SESSION["name"];
 
-if ($username2==$username3){
-    header("Location: adminlogin.php");
+if ($name==$name0){
+    header("Location: login.php");
 }
  
 ?>
@@ -28,7 +28,6 @@ if ($username2==$username3){
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="border-bottom:2px solid ">
             <a class="navbar-brand" href="#">Hotel Aphrodite</a>
-            <span style="background-color:darkcyan; color:white; padding-left:20px; padding-right:20px; border-radius:15px;">Administrator</span>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -38,7 +37,7 @@ if ($username2==$username3){
                         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="client.php">Client</a>
+                        <a class="nav-link" href="facilities.php">Facilities</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
@@ -52,7 +51,7 @@ if ($username2==$username3){
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                        <?php echo($username3); ?>
+                        <?php echo($name0); ?>
                         </a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="">Profile</a>
@@ -63,43 +62,16 @@ if ($username2==$username3){
                 </ul>
             </div>
         </nav>
-        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-              <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-              <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-              <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="../img/raja ampat.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>INDONESIA</h5>
-                        <p>Some representative placeholder content for the first slide.</p>
-                    </div>
+        <br><br><br><br>
+        <div class="container" style="background-color:lightgrey; border-radius:15px;">
+            <div class="row">
+                <div class="col">
+                    <img >
                 </div>
-                <div class="carousel-item">
-                    <img src="../img/swiss.jpeg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>JAPAN</h5>
-                        <p>Some representative placeholder content for the second slide.</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="../img/tokyo.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>SWITZERLAND</h5>
-                        <p>Some representative placeholder content for the third slide.</p>
-                        </div>
-                </div>
+                <div class="col">col</div>
+                <div class="col">col</div>
+                <div class="col">col</div>
             </div>
-            <button class="carousel-control-prev" type="button" data-target="#carouselExampleCaptions" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-target="#carouselExampleCaptions" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </button>
         </div>
     </body>
 </html>

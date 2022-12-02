@@ -75,7 +75,7 @@ $username1=$_SESSION["name"];
             </div>
         </nav>
         <br><br><br><br>
-        <form action="test.php" method="post">
+        <form action="review.php" method="post">
             <div class="container" style="background-color:lightgrey; border-radius:15px;">
                 <?php while($row=mysqli_fetch_assoc($result)) : ?>
                 <div class="row">

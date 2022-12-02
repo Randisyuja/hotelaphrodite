@@ -1,14 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <script>
-        console.log(event);
-    </script>
-</body>
-</html>
+<?php
+include "../koneksi.php";
+
+if (isset($_POST["submit"])){
+    
+    $kode_kamar=$_POST["kodekamar"];
+    $image=$_POST["image"];
+    $tipe_kamar=$_POST["tipekamar"];
+    $desc=$_POST["deskripsi"];
+    $harga=$_POST["harga"];
+
+    $sql="UPDATE indonesia SET kode_kamar='$kode_kamar', image='$image', tipe_kamar='$tipe_kamar', deskripsi='$desc', harga='$harga' WHERE kode_kamar='$kode_kamar'";
+    $result=mysqli_query($koneksi, $sql);
+    if (!$result){
+        echo ("Query mistake");
+    }else{
+        echo "<script>alert('Update Successful!')</script>";
+        header("location: indo.php");
+    }
+}
+?>
