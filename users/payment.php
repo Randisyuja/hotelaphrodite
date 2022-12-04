@@ -9,7 +9,37 @@ $name0=$_SESSION["name"];
 if ($name==$name0){
     header("Location: login.php");
 }
- 
+
+if (isset($_POST["home"])){
+    header("location: ../index.php");
+}
+
+if (isset($_POST["payment"])){
+    $branch=$_POST["branch"];
+    $kode_kamar=$_POST["kode_kamar"];
+    $nik=$_SESSION["nik"];
+
+    $sql="SELECT * FROM $branch WHERE kode_kamar='$kode_kamar'";
+    $result=mysqli_query($koneksi, $sql);
+    $row=mysqli_fetch_assoc($result);
+    $tipe_kamar=$row["tipe_kamar"];
+    $harga=$row["harga"];
+
+
+    $cekin=date("Y-m-d", strtotime($_POST["cekin"]));
+    $duration=$_POST["duration"];
+    $total=$harga*$duration;
+    $cekout=date("Y-m-d", strtotime("+$duration days", strtotime($cekin)));
+    $sql1="SELECT * FROM accounts WHERE nik='$nik'";
+    $result1=mysqli_query($koneksi, $sql1);
+    $client=mysqli_fetch_assoc($result1);
+    $nohp=$client["nohp"];
+
+    $sql2="INSERT INTO client VALUES ('$kode_kamar', '$tipe_kamar', '$harga', '$cekin', '$cekout', '$duration', '$total', '$name0', '$nohp')";
+    $result2=mysqli_query($koneksi, $sql2);
+    
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -26,42 +56,47 @@ if ($name==$name0){
         <link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet">
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="border-bottom:2px solid ">
-            <a class="navbar-brand" href="#">Hotel Aphrodite</a>
-            <span style="background-color:darkcyan; color:white; padding-left:20px; padding-right:20px; border-radius:15px;">Administrator</span>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="admininput.php">Room</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                        Branch
-                        </a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="indo.php">Indonesia</a>
-                            <a class="dropdown-item" href="japan.php">Japan</a>
-                            <a class="dropdown-item" href="swiss.php">Switzerland</a>
+        <br><br><br><br>
+        <?php 
+        if($result2){
+            echo '
+                <div class="container" style="border-radius:15px;">
+                    <form method="post">
+                    <div class="row">
+                        <div class="col-sm">
+                            <input type="hidden" value="<?php ?>">
                         </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                        <?php echo($name0); ?>
-                        </a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="">Profile</a>
-                            <a class="dropdown-item" href="">Room in use</a>
-                            <a class="dropdown-item" href="adminlogout.php">Logout</a>
+                        <div class="col-sm"  align="center">
+                            <br><br><br><br><br><br>
+                            <h5 class="text-center">Berhasil Memesan Kamar</h5>
+                            <button class="btn btn-primary" type="submit"  name="home">Back to Home</button>
                         </div>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+                        <div class="col">
+                            
+                        </div>
+                        </form>
+                    </div>
+                </div>';
+        }else{
+            echo '
+                <div class="container" style="border-radius:15px;">
+                    <form method="post">
+                    <div class="row">
+                        <div class="col-sm">
+                            <input type="hidden" value="<?php ?>">
+                        </div>
+                        <div class="col-sm"  align="center">
+                            <br><br><br><br><br><br>
+                            <h5 class="text-center">Kesalahan saat memesan kamar</h5>
+                            <button class="btn btn-primary" type="submit"  name="home">Back to Home</button>
+                        </div>
+                        <div class="col">
+                            
+                        </div>
+                        </form>
+                    </div>
+                </div>';
+        }
+        ?>
     </body>
 </html>

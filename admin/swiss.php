@@ -2,7 +2,7 @@
 
 include "../koneksi.php";
 
-$branch="indonesia";
+$branch="swiss";
 $sql="SELECT * FROM $branch";
 $result=mysqli_query($koneksi, $sql);
 
@@ -25,7 +25,7 @@ if (isset($_POST['submit'])) {
     $result1 = mysqli_query($koneksi, $sql);
     if($result1){
         echo "<script>alert('Berhasil memasukkan data baru')</script>";
-        header("Location: indo.php");
+        header("Location: swiss.php");
     }
 }
 
@@ -35,7 +35,7 @@ if (isset($_POST['delete'])) {
     $kodekamar=$_POST['delete'];
     $sql="DELETE FROM $branch WHERE kode_kamar='$kodekamar'";
     mysqli_query($koneksi, $sql);
-    header("Location: indo.php");
+    header("Location: swiss.php");
 }
 ?>
 
@@ -52,7 +52,7 @@ if (isset($_POST['delete'])) {
 
         <style>
           body{
-            background-image:url(../img/bgindo.jpg);
+            background-image:url(../img/bgswiss.jpg);
           }
         </style>
     </head>
@@ -71,14 +71,14 @@ if (isset($_POST['delete'])) {
                     <li class="nav-item">
                         <a class="nav-link" href="client.php">Client</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                    <li class="nav-item dropdown active">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
                         Branch
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item active" href="indo.php">Indonesia</a>
+                            <a class="dropdown-item" href="indo.php">Indonesia</a>
                             <a class="dropdown-item" href="japan.php">Japan</a>
-                            <a class="dropdown-item" href="swiss.php">Switzerland</a>
+                            <a class="dropdown-item active" href="swiss.php">Switzerland</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">

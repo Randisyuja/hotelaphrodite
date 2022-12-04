@@ -84,8 +84,8 @@ $num=0;
                             <th scope="col">Room Code</th>
                             <th scope="col">Room Type</th>
                             <th scope="col">Price</th>
-                            <th scope="col">Length of stay</th>
-                            <th scope="col">Total</th>
+                            <th scope="col">Check In</th>
+                            <th scope="col">Check Out</th>
                             <th scope="col">No HP</th>
                             </tr>
                         </thead>

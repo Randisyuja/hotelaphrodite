@@ -19,7 +19,8 @@ if (isset($_POST['submit'])) {
     $result = mysqli_query($koneksi, $sql);
     if ($result->num_rows > 0) {
         $row = mysqli_fetch_assoc($result);
-        $_SESSION['name'] = $row['name'];
+        $_SESSION["name"] = $row["name"];
+        $_SESSION["nik"] = $row["nik"];
         header("Location: ../index.php");
     } else {
         echo "<script>alert('Email atau password Anda salah. Silahkan coba lagi!')</script>";

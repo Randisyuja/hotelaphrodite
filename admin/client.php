@@ -12,7 +12,6 @@ if ($username2==$username3){
 
 $sql="SELECT * FROM client";
 $result=mysqli_query($koneksi, $sql);
-$row=mysqli_fetch_assoc($result);
 
 $var=$result->num_rows;
 $num=0;
@@ -40,11 +39,11 @@ $num=0;
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin.php">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="client.php">Client</a>
+                        <a class="nav-link active" href="client.php">Client</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
@@ -89,8 +88,8 @@ $num=0;
                             <th scope="col">No HP</th>
                             </tr>
                         </thead>
-                        <?php while($var>0):
-                        $num=+1;?>
+                        <?php while($row=mysqli_fetch_assoc($result)):
+                        $num=$num+1;?>
                         <tbody>
                             <tr>
                             <th scope="row"><?php echo $num;?></th>
@@ -104,7 +103,6 @@ $num=0;
                             </tr>
                         </tbody>
                         <?php 
-                        $var=-1;
                         endwhile; ?>
                     </table>
                 </div>
