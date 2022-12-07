@@ -12,7 +12,33 @@ if ($username2==$username3){
 
 $sql="SELECT * FROM client";
 $result=mysqli_query($koneksi, $sql);
-$row=mysqli_fetch_assoc($result);
+$client=mysqli_fetch_assoc($result);
+
+$sql1="SELECT * FROM checkin";
+$result1=mysqli_query($koneksi, $sql);
+$row=mysqli_fetch_assoc($result1);
+
+if(isset($_POST["submit"])){
+    $nopayment=$_POST["nopayment"];
+    $sql2="SELECT * FROM client WHERE no_pemesanan='$nopayment'";
+    $result2=mysqli_query($koneksi, $sql2);
+    $cekin=mysqli_fetch_assoc($result2);
+    
+    $branch=$cekin["branch"];
+    $kode_kamar=$cekin["kode_kamar"];
+    $tipe_kamar=$cekin["tipe_kamar"];
+    $harga=$cekin["harga"];
+    $cekin1=$cekin["checkin"];
+    $cekout=$cekin["checkout"];
+    $duration=$cekin["lama_menginap"];
+    $total=$cekin["total"];
+    $nik=$cekin["nik"];
+    $nama=$cekin["nama"];
+    $nohp=$cekin["nohp"];
+
+    $insert="INSERT INTO checkin VALUES ('$nopayment', '$branch', '$kode_kamar', '$tipe_kamar', '$harga', '$cekin1', '$cekout', '$duration', '$total', '$nik', '$nama', '$nohp')";
+    $result3=mysqli_query($koneksi, $insert);
+}
 
 $var=$result->num_rows;
 $num=0;
@@ -33,18 +59,18 @@ $num=0;
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="border-bottom:2px solid ">
-            <a class="navbar-brand" href="#">Hotel Aphrodite</a>
+            <a class="navbar-brand" href="#">Hotel Kami</a>
             <span style="background-color:darkcyan; color:white; padding-left:20px; padding-right:20px; border-radius:15px;">Administrator</span>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin.php">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="client.php">Client</a>
+                        <a class="nav-link active" href="client.php">Client</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
@@ -69,9 +95,15 @@ $num=0;
                 </ul>
             </div>
         </nav>
-        <br><br><br><br>
-        
+        <br><br><br><br>        
         <div class="container" style="background-color:lightgrey; border-radius:15px;">
+        <form action="" method="post">
+            <input type="number" name="nopayment">
+            <input class="btn btn-primary" type="submit" name="submit" value="Submit">
+
+        </form>
+        <a class="btn btn-primary" href="checkin.php" role="button">Check In</a>
+        <a class="btn btn-primary" href="checkout.php" role="button">Check Out</a>
             <div class="row">
                 <div class="col">
                 </div>
@@ -84,13 +116,13 @@ $num=0;
                             <th scope="col">Room Code</th>
                             <th scope="col">Room Type</th>
                             <th scope="col">Price</th>
-                            <th scope="col">Check In</th>
-                            <th scope="col">Check Out</th>
+                            <th scope="col">Length of stay</th>
+                            <th scope="col">Total</th>
                             <th scope="col">No HP</th>
                             </tr>
                         </thead>
-                        <?php while($var>0):
-                        $num=+1;?>
+                        <?php while($row=mysqli_fetch_assoc($result)):
+                        $num=$num+1;?>
                         <tbody>
                             <tr>
                             <th scope="row"><?php echo $num;?></th>
@@ -104,7 +136,6 @@ $num=0;
                             </tr>
                         </tbody>
                         <?php 
-                        $var=-1;
                         endwhile; ?>
                     </table>
                 </div>
