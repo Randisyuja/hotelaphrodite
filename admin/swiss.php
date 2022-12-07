@@ -129,6 +129,7 @@ if (isset($_POST['delete'])) {
                             <p class="text-center"><?php echo $row["harga"];?></p>
                             <div align="center">
                                 <form action=updateroom.php method="get">
+                                    <input type="hidden" value="<?php echo $branch;?>" name="branch">
                                     <button class="btn btn-primary" type="submit" name="update" value=<?php echo($row["kode_kamar"]); ?>>Update</button>
                                 </form>
                                 <br>

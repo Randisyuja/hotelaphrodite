@@ -20,7 +20,7 @@ $username1=$_SESSION["name"];
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="border-bottom:2px solid ">
-            <a class="navbar-brand" href="#">Hotel Aphrodite</a>
+            <a class="navbar-brand" href="#">Hotel Kami</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -30,7 +30,7 @@ $username1=$_SESSION["name"];
                         <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="users/facilities.html">Facilities</a>
+                        <a class="nav-link" href="users/facilities.php">Facilities</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
@@ -54,6 +54,7 @@ $username1=$_SESSION["name"];
                         </a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="users/profile.php">My Profile</a>
+                            <a class="dropdown-item" href="users/myorder.php">My Order</a>
                             <a class="dropdown-item" href="users/logout.php">Logout</a>
                         </div>
                         </li>';
@@ -71,24 +72,24 @@ $username1=$_SESSION["name"];
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="img/homebali.jpg" class="d-block w-100" alt="...">
+                    <img src="img/home1.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>INDONESIA</h5>
-                        <p>Some representative placeholder content for the first slide.</p>
+                        <p>SSelamat Datang Di Hotel Kami.</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="img/swiss.jpeg" class="d-block w-100" alt="...">
+                    <img src="img/home2.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>JAPAN</h5>
-                        <p>Some representative placeholder content for the second slide.</p>
+                        <p>当ホテルへようこそ.</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="img/tokyo.jpg" class="d-block w-100" alt="...">
+                    <img src="img/home3.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>SWITZERLAND</h5>
-                        <p>Some representative placeholder content for the third slide.</p>
+                        <p>Willkommen in unserem Hotel.</p>
                         </div>
                 </div>
             </div>

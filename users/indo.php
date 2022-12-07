@@ -31,7 +31,7 @@ $username1=$_SESSION["name"];
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="border-bottom:2px solid ">
-            <a class="navbar-brand" href="index.php">Hotel Aphrodite</a>
+            <a class="navbar-brand" href="index.php">Hotel kami</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -65,6 +65,7 @@ $username1=$_SESSION["name"];
                         </a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="profile.php">My Profile</a>
+                            <a class="dropdown-item" href="myorder.php">My Order</a>
                             <a class="dropdown-item" href="logout.php">Logout</a>
                         </div>
                         </li>';

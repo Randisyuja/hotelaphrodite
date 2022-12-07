@@ -2,8 +2,9 @@
 
 include "../koneksi.php";
 
-$branch="indonesia";
-$sql="SELECT * FROM $branch";
+$branch=$_GET["branch"];
+echo $branch;
+$sql="SELECT * FROM '$branch'";
 $result=mysqli_query($koneksi, $sql);
 
 session_start();
@@ -23,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD']=='GET'){
 
     $kode_kamar = $_GET["update"];
 
-    $sql1 = "SELECT * FROM indonesia WHERE kode_kamar='$kode_kamar'";
+    $sql1 = "SELECT * FROM $branch WHERE kode_kamar='$kode_kamar'";
     $result1 = mysqli_query($koneksi, $sql1);
     $row = mysqli_fetch_assoc($result1);
 
@@ -102,6 +103,7 @@ if ($_SERVER['REQUEST_METHOD']=='GET'){
                             <input type="file" value="<?php echo $image; ?>"name="image">
                         </div>
                         <div class="form-group">
+                            <input type="hidden" value="<?php echo $branch;?>" name="branch">
                             <input type="text" class="form-control" name="kodekamar" value="<?php echo $kode_kamar; ?>" placeholder="Room Code" required>
                         </div>
                         <div class="form-group">

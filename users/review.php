@@ -48,10 +48,16 @@ if (isset($_POST["booknow"])){
         <script type="text/javascript" src="../js/bootstrap.min.js"></script>
 
         <link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet">
+        
+        <style>
+          body{
+            background-image:url(../img/login.jpg);
+          }
+        </style>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="border-bottom:2px solid ">
-            <a class="navbar-brand" href="#">Hotel Aphrodite</a>
+            <a class="navbar-brand" href="#">Hotel Kami</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -78,8 +84,8 @@ if (isset($_POST["booknow"])){
                         <?php echo($name0); ?>
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="">Profile</a>
-                            <a class="dropdown-item" href="">Room in use</a>
+                            <a class="dropdown-item" href="profile.php">Profile</a>
+                            <a class="dropdown-item" href="myorder.php">My Order</a>
                             <a class="dropdown-item" href="logout.php">Logout</a>
                         </div>
                     </li>

@@ -123,12 +123,13 @@ if (isset($_POST['delete'])) {
                         <div class="col-sm">
                             <br>
                             <h3 class="text-center"><?php echo $row["tipe_kamar"];?></h3>
-                            <div><?php echo $row["deskripsi"];?></div>
+                            <pre><?php echo $row["deskripsi"];?></pre>
                         </div>
                         <div class="col align-self-center">
                             <p class="text-center"><?php echo $row["harga"];?></p>
                             <div align="center">
                                 <form action=updateroom.php method="get">
+                                    <input type="hidden" value="<?php echo $branch;?>" name="branch">
                                     <button class="btn btn-primary" type="submit" name="update" value=<?php echo($row["kode_kamar"]); ?>>Update</button>
                                 </form>
                                 <br>

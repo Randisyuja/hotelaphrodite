@@ -35,7 +35,7 @@ if (isset($_POST["payment"])){
     $client=mysqli_fetch_assoc($result1);
     $nohp=$client["nohp"];
 
-    $sql2="INSERT INTO client VALUES ('$kode_kamar', '$tipe_kamar', '$harga', '$cekin', '$cekout', '$duration', '$total', '$name0', '$nohp')";
+    $sql2="INSERT INTO client VALUES ('', '$branch', '$kode_kamar', '$tipe_kamar', '$harga', '$cekin', '$cekout', '$duration', '$total', '$nik', '$name0', '$nohp')";
     $result2=mysqli_query($koneksi, $sql2);
     
 }
@@ -87,7 +87,7 @@ if (isset($_POST["payment"])){
                         </div>
                         <div class="col-sm"  align="center">
                             <br><br><br><br><br><br>
-                            <h5 class="text-center">Kesalahan saat memesan kamar</h5>
+                            <h5 class="text-center">Kesalahan terjadi saat memesan kamar</h5>
                             <button class="btn btn-primary" type="submit"  name="home">Back to Home</button>
                         </div>
                         <div class="col">
