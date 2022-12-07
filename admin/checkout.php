@@ -14,12 +14,12 @@ $sql="SELECT * FROM client";
 $result=mysqli_query($koneksi, $sql);
 $client=mysqli_fetch_assoc($result);
 
-$sql1="SELECT * FROM checkin";
+$sql1="SELECT * FROM checkout";
 $result1=mysqli_query($koneksi, $sql1);
 
 if(isset($_POST["submit"])){
     $nopayment=$_POST["nopayment"];
-    $sql2="SELECT * FROM client WHERE no_pemesanan='$nopayment'";
+    $sql2="SELECT * FROM checkin WHERE no_pemesanan='$nopayment'";
     $result2=mysqli_query($koneksi, $sql2);
     $cekin=mysqli_fetch_assoc($result2);
     
@@ -35,13 +35,15 @@ if(isset($_POST["submit"])){
     $nama=$cekin["nama"];
     $nohp=$cekin["nohp"];
 
-    $insert="INSERT INTO checkin VALUES ('$nopayment', '$branch', '$kode_kamar', '$tipe_kamar', '$harga', '$cekin1', '$cekout', '$duration', '$total', '$nik', '$nama', '$nohp')";
+    $insert="INSERT INTO checkout VALUES ('$nopayment', '$branch', '$kode_kamar', '$tipe_kamar', '$harga', '$cekin1', '$cekout', '$duration', '$total', '$nik', '$nama', '$nohp')";
     $result3=mysqli_query($koneksi, $insert);
-    if($result3){
-        header("location: checkin.php");
-    }else{
-        header("location: admin.php");
-    }
+
+    
+    $delete1="DELETE FROM client WHERE no_pemesanan='$nopayment'";
+    $delete="DELETE FROM checkin WHERE no_pemesanan='$nopayment'";
+    $result4=mysqli_query($koneksi, $delete);
+    $result5=mysqli_query($koneksi, $delete1);
+    header("location: checkout.php");
 }
 
 $var=$result->num_rows;

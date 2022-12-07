@@ -13,13 +13,17 @@ if ($name==$name0){
 
 $sql="SELECT * FROM client WHERE nik='$nik'";
 $result=mysqli_query($koneksi, $sql);
-$client=mysqli_fetch_assoc($result);
-$branch=$client["branch"];
-$kode_kamar=$client["kode_kamar"];
+if($result->num_rows>0){
+    $client=mysqli_fetch_assoc($result);
+    $branch=$client["branch"];
+    $kode_kamar=$client["kode_kamar"];
 
-$sql1="SELECT * FROM $branch WHERE kode_kamar='$kode_kamar'";
-$result1=mysqli_query($koneksi, $sql1);
-$kamar=mysqli_fetch_assoc($result1);
+    $sql1="SELECT * FROM $branch WHERE kode_kamar='$kode_kamar'";
+    $result1=mysqli_query($koneksi, $sql1);
+    $kamar=mysqli_fetch_assoc($result1);
+}else{
+    echo "<script>alert('Anda belum memiliki pesanan')</script>";
+}
 
 $var=$result->num_rows;
 $num=0;

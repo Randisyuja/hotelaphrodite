@@ -71,24 +71,24 @@ if ($username2==$username3){
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="../img/raja ampat.jpg" class="d-block w-100" alt="...">
+                    <img src="../img/home1.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>INDONESIA</h5>
-                        <p>Some representative placeholder content for the first slide.</p>
+                        <p>Selamat Datang Di Hotel Kami.</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="../img/swiss.jpeg" class="d-block w-100" alt="...">
+                    <img src="../img/home2.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>JAPAN</h5>
-                        <p>Some representative placeholder content for the second slide.</p>
+                        <p>当ホテルへようこそ.</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="../img/tokyo.jpg" class="d-block w-100" alt="...">
+                    <img src="../img/home3.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>SWITZERLAND</h5>
-                        <p>Some representative placeholder content for the third slide.</p>
+                        <p>Willkommen in unserem Hotel.</p>
                         </div>
                 </div>
             </div>
