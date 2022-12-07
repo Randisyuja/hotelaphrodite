@@ -75,7 +75,7 @@ $username1=$_SESSION["name"];
                     <img src="img/home1.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>INDONESIA</h5>
-                        <p>SSelamat Datang Di Hotel Kami.</p>
+                        <p>Selamat Datang Di Hotel Kami.</p>
                     </div>
                 </div>
                 <div class="carousel-item">
