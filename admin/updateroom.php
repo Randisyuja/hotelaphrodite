@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD']=='GET'){
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="border-bottom:2px solid ">
-            <a class="navbar-brand" href="index.php">Hotel Aphrodite</a>
+            <a class="navbar-brand" href="index.php">Hotel Kami</a>
             <span style="background-color:darkcyan; color:white; padding-left:20px; padding-right:20px; border-radius:15px;">Administrator</span>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
