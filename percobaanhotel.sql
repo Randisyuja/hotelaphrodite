@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 07, 2022 at 11:37 AM
+-- Generation Time: Dec 10, 2022 at 07:09 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -91,10 +91,46 @@ CREATE TABLE `checkin` (
   `checkout` date NOT NULL,
   `lama_menginap` int(11) NOT NULL,
   `total` int(11) NOT NULL,
-  `nik` varchar(100) NOT NULL,
+  `nik` varchar(150) NOT NULL,
   `nama` varchar(100) NOT NULL,
   `nohp` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `checkin`
+--
+
+INSERT INTO `checkin` (`no_pemesanan`, `branch`, `kode_kamar`, `tipe_kamar`, `harga`, `checkin`, `checkout`, `lama_menginap`, `total`, `nik`, `nama`, `nohp`) VALUES
+(10, 'indonesia', 'db01', 'Double Bed Room', 1199000, '2022-12-15', '2022-12-17', 2, 2398000, '3216181312020007', 'mutia khoirunniza', '081298274007');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `checkout`
+--
+
+CREATE TABLE `checkout` (
+  `no_pemesanan` int(11) NOT NULL,
+  `branch` varchar(100) NOT NULL,
+  `kode_kamar` char(5) NOT NULL,
+  `tipe_kamar` varchar(100) NOT NULL,
+  `harga` int(11) NOT NULL,
+  `checkin` date NOT NULL,
+  `checkout` date NOT NULL,
+  `lama_menginap` int(11) NOT NULL,
+  `total` int(11) NOT NULL,
+  `nik` varchar(150) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `nohp` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `checkout`
+--
+
+INSERT INTO `checkout` (`no_pemesanan`, `branch`, `kode_kamar`, `tipe_kamar`, `harga`, `checkin`, `checkout`, `lama_menginap`, `total`, `nik`, `nama`, `nohp`) VALUES
+(1, 'japan', 'jpdb', 'Double Bed Room', 3000000, '2022-12-15', '2022-12-19', 4, 12000000, '3216181312020001', 'Randi Syuja', '081298274008'),
+(20, 'swiss', 'swbd', 'Double Bed Room ', 3500000, '2022-12-13', '2022-12-19', 6, 21000000, '3216181312020001', 'Randi Syuja', '081298274008');
 
 -- --------------------------------------------------------
 
@@ -112,7 +148,7 @@ CREATE TABLE `client` (
   `checkout` date NOT NULL,
   `lama_menginap` int(11) NOT NULL,
   `total` int(11) NOT NULL,
-  `nik` varchar(100) NOT NULL,
+  `nik` varchar(150) NOT NULL,
   `nama` varchar(100) NOT NULL,
   `nohp` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -166,9 +202,9 @@ CREATE TABLE `japan` (
 --
 
 INSERT INTO `japan` (`kode_kamar`, `image`, `tipe_kamar`, `deskripsi`, `harga`) VALUES
-('jptb', 'kamarjapan.jpeg', 'Twin Bed Room', '**** 9,9 Luar Biasa (5,250 Ulasan )\r\nHarga Per Malam mulai dari ', 2300000),
+('jpdb', 'kamarjapan2.jpeg', 'Double Bed Room', '**** 8,5 Luar Biasa ( 4,540 ulasan) \r\nHarga Per Malam mulai dari \r\n', 3000000),
 ('jpsb', 'kamarjapan4.jpeg', 'Single Bed Room', '**** 9,5 Luar Biasa ( 3,120 Ulasan )\r\nHarga Per Malam mulai dari \r\n', 2000000),
-('jpdb', 'kamarjapan2.jpeg', 'Double Bed Room', '**** 8,5 Luar Biasa ( 4,540 ulasan) \r\nHarga Per Malam mulai dari \r\n', 3000000);
+('jptb', 'kamarjapan.jpeg', 'Twin Bed Room', '**** 9,9 Luar Biasa (5,250 Ulasan )\r\nHarga Per Malam mulai dari ', 2300000);
 
 -- --------------------------------------------------------
 
@@ -200,9 +236,9 @@ CREATE TABLE `swiss` (
 --
 
 INSERT INTO `swiss` (`kode_kamar`, `image`, `tipe_kamar`, `deskripsi`, `harga`) VALUES
+('swbd', 'swiss1.jpg', 'Double Bed Room ', '**** 9,9 Luar Biasa ( 5,000 Ulasan )\r\nHarga Per malam mulai dari ', 3500000),
 ('swsb', 'swiss2.jpg', 'Single Bed Room', '**** 9,0 Luar Biasa ( 2,240 ulasan) \r\nHarga Per malam mulai dari ', 2900000),
-('swtb', 'swiss3.jpg', 'Twin Bed Room', '**** 9,6 Luar Biasa ( 3,990 Ulasan )\r\nHarga Per malam mulai dari ', 3200000),
-('swbd', 'swiss1.jpg', 'Double Bed Room ', '**** 9,9 Luar Biasa ( 5,000 Ulasan )\r\nHarga Per malam mulai dari ', 3500000);
+('swtb', 'swiss3.jpg', 'Twin Bed Room', '**** 9,6 Luar Biasa ( 3,990 Ulasan )\r\nHarga Per malam mulai dari ', 3200000);
 
 --
 -- Indexes for dumped tables
@@ -222,6 +258,19 @@ ALTER TABLE `admin`
   ADD UNIQUE KEY `nik` (`nik`);
 
 --
+-- Indexes for table `checkin`
+--
+ALTER TABLE `checkin`
+  ADD PRIMARY KEY (`no_pemesanan`),
+  ADD UNIQUE KEY `nik` (`nik`);
+
+--
+-- Indexes for table `checkout`
+--
+ALTER TABLE `checkout`
+  ADD PRIMARY KEY (`no_pemesanan`);
+
+--
 -- Indexes for table `client`
 --
 ALTER TABLE `client`
@@ -232,6 +281,18 @@ ALTER TABLE `client`
 -- Indexes for table `indonesia`
 --
 ALTER TABLE `indonesia`
+  ADD PRIMARY KEY (`kode_kamar`);
+
+--
+-- Indexes for table `japan`
+--
+ALTER TABLE `japan`
+  ADD PRIMARY KEY (`kode_kamar`);
+
+--
+-- Indexes for table `swiss`
+--
+ALTER TABLE `swiss`
   ADD PRIMARY KEY (`kode_kamar`);
 
 --
@@ -248,7 +309,23 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `client`
 --
 ALTER TABLE `client`
-  MODIFY `no_pemesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `no_pemesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `checkin`
+--
+ALTER TABLE `checkin`
+  ADD CONSTRAINT `checkin_ibfk_2` FOREIGN KEY (`nik`) REFERENCES `accounts` (`nik`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+--
+-- Constraints for table `client`
+--
+ALTER TABLE `client`
+  ADD CONSTRAINT `client_ibfk_1` FOREIGN KEY (`nik`) REFERENCES `accounts` (`nik`) ON DELETE NO ACTION ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

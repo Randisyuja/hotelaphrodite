@@ -60,6 +60,12 @@ $num=0;
         <script type="text/javascript" src="../js/bootstrap.min.js"></script>
 
         <link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet">
+        
+        <style>
+          body{
+            background-image:url(../img/login.jpg);
+          }
+        </style>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="border-bottom:2px solid ">
@@ -104,7 +110,7 @@ $num=0;
             <div class="row">
                 <div class="col">
                 <form action="" method="post">
-                    <input type="number" name="nopayment" placeholder="no pemesanan">
+                    <input type="number" name="nopayment" placeholder="no pemesanan" style="border-radius:10px;">
                     <input class="btn btn-primary" type="submit" name="submit" value="Submit">
 
                 </form>
@@ -123,7 +129,7 @@ $num=0;
             <div class="row">
                 <div class="col">
                 </div>
-                <div class="col-12">
+                <div class="col-13">
                     <table class="table">
                         <thead>
                             <tr>
@@ -132,7 +138,9 @@ $num=0;
                             <th scope="col">Room Code</th>
                             <th scope="col">Room Type</th>
                             <th scope="col">Price</th>
-                            <th scope="col">Length of stay</th>
+                            <th scope="col">Check In</th>
+                            <th scope="col">Check Out</th>
+                            <th scope="col">Duration</th>
                             <th scope="col">Total</th>
                             <th scope="col">No HP</th>
                             </tr>
@@ -146,6 +154,8 @@ $num=0;
                             <td><?php echo $row["kode_kamar"];?></td>
                             <td><?php echo $row["tipe_kamar"];?></td>
                             <td><?php echo "Rp ".$row["harga"];?></td>
+                            <td><?php echo $row["checkin"];?></td>
+                            <td><?php echo $row["checkout"];?></td>
                             <td><?php echo $row["lama_menginap"];?></td>
                             <td><?php echo "Rp ".$row["total"];?></td>
                             <td><?php echo $row["nohp"];?></td>

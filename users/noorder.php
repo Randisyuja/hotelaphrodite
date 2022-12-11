@@ -22,13 +22,12 @@ if($result->num_rows>0){
     $result1=mysqli_query($koneksi, $sql1);
     $kamar=mysqli_fetch_assoc($result1);
 }else{
-    header("location: noorder.php");
+    echo "<script>alert('Anda belum memiliki pesanan')</script>";
 }
 
 if(isset($_POST["delete"])){
     $sql2="DELETE FROM client WHERE nik='$nik'";
     mysqli_query($koneksi, $sql2);
-    header("location: myorder.php");
 }
 
 ?>
@@ -104,50 +103,12 @@ if(isset($_POST["delete"])){
                 <div class="col">
                 </div>
                 <div class="col-14">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                            <th scope="col">No Pemesanan</th>
-                            <th scope="col">Image</th>
-                            <th scope="col">Room Type</th>
-                            <th scope="col">Check In</th>
-                            <th scope="col">Check Out</th>
-                            <th scope="col">Harga</th>
-                            <th scope="col">Duration</th>
-                            <th scope="col">Total</th>
-                            </tr>
-                        </thead>
-                        <tbody align="center">
-                            <tr>
-                            <td><?php echo $client["no_pemesanan"];?></td>
-                            <td><img src="../img/<?php echo $kamar["image"];?>" style="margin-top:15px; margin-bottom:15px; padding:10px;padding-top:10px; background-color:lightgrey;border:0; border-radius:20px; width:300px; height:150px;  "></td>
-                            <td><?php echo $kamar["tipe_kamar"];?></td>
-                            <td><?php echo $client["checkin"];?></td>
-                            <td><?php echo $client["checkout"];?></td>
-                            <td><?php echo "Rp ".$kamar["harga"];?></td>
-                            <td><?php echo $client["lama_menginap"];?> Nights</td>
-                            <td><?php echo "Rp ".$client["total"];?></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    Anda Belum Memiliki Pesanan
                 </div>
                 <div class="col">
        
                 </div>
             </div>
-            <div class="row">
-                <div class="col">
-
-                </div>
-                <div class="col">
-
-                </div>
-                <div class="col" align="right">
-                    <form action="" method="post">
-                        <input class="btn btn-primary" type="submit" name="delete" value="Cancel Order">
-                    </form>
-                </div>
-            </div><br>
         </div>
     </body>
 </html>
