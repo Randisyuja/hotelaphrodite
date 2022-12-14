@@ -74,7 +74,6 @@ if (isset($_POST['submit'])) {
                         </a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="">Profile</a>
-                            <a class="dropdown-item" href="">Room in use</a>
                             <a class="dropdown-item" href="adminlogout.php">Logout</a>
                         </div>
                     </li>

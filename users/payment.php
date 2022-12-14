@@ -37,6 +37,9 @@ if (isset($_POST["payment"])){
 
     $sql2="INSERT INTO client VALUES ('', '$branch', '$kode_kamar', '$tipe_kamar', '$harga', '$cekin', '$cekout', '$duration', '$total', '$nik', '$name0', '$nohp')";
     $result2=mysqli_query($koneksi, $sql2);
+
+    $order="SELECT * FROM client WHERE nik='$nik'";
+    $cekorder=mysqli_query($koneksi, $order);
     
 }
 
@@ -69,6 +72,25 @@ if (isset($_POST["payment"])){
                         <div class="col-sm"  align="center">
                             <br><br><br><br><br><br>
                             <h5 class="text-center">Berhasil Memesan Kamar</h5>
+                            <button class="btn btn-primary" type="submit"  name="home">Back to Home</button>
+                        </div>
+                        <div class="col">
+                            
+                        </div>
+                        </form>
+                    </div>
+                </div>';
+        }elseif($cekorder){
+            echo '
+                <div class="container" style="border-radius:15px;">
+                    <form method="post">
+                    <div class="row">
+                        <div class="col-sm">
+                            <input type="hidden" value="<?php ?>">
+                        </div>
+                        <div class="col-sm"  align="center">
+                            <br><br><br><br><br><br>
+                            <h5 class="text-center">Anda sudah mempunyai pesanan</h5>
                             <button class="btn btn-primary" type="submit"  name="home">Back to Home</button>
                         </div>
                         <div class="col">

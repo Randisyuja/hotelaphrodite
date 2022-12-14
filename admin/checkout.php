@@ -10,19 +10,34 @@ if ($username2==$username3){
     header("Location: adminlogin.php");
 }
 
-$sql="SELECT * FROM client";
+/*$sql="SELECT * FROM client";
 $result=mysqli_query($koneksi, $sql);
-$client=mysqli_fetch_assoc($result);
+$client=mysqli_fetch_assoc($result);*/
 
 $sql1="SELECT * FROM checkout";
 $result1=mysqli_query($koneksi, $sql1);
 
 if(isset($_POST["submit"])){
     $nopayment=$_POST["nopayment"];
+    
+    if(empty($nopayment)){
+        echo "<script>
+        alert('Masukkan nomor pembayaran!');
+        window.location.href = 'checkout.php';
+        </script>";
+    }
+
     $sql2="SELECT * FROM checkin WHERE no_pemesanan='$nopayment'";
     $result2=mysqli_query($koneksi, $sql2);
     $cekin=mysqli_fetch_assoc($result2);
     
+    if(!$cekin){
+        echo "<script>
+        alert('Tidak ada nomor pembayaran');
+        window.location.href = 'checkout.php';
+        </script>";
+    }
+
     $branch=$cekin["branch"];
     $kode_kamar=$cekin["kode_kamar"];
     $tipe_kamar=$cekin["tipe_kamar"];
@@ -35,18 +50,28 @@ if(isset($_POST["submit"])){
     $nama=$cekin["nama"];
     $nohp=$cekin["nohp"];
 
-    $insert="INSERT INTO checkout VALUES ('$nopayment', '$branch', '$kode_kamar', '$tipe_kamar', '$harga', '$cekin1', '$cekout', '$duration', '$total', '$nik', '$nama', '$nohp')";
-    $result3=mysqli_query($koneksi, $insert);
+    if($cekin){
+        $insert="INSERT INTO checkout VALUES ('$nopayment', '$branch', '$kode_kamar', '$tipe_kamar', '$harga', '$cekin1', '$cekout', '$duration', '$total', '$nik', '$nama', '$nohp')";
+        $result3=mysqli_query($koneksi, $insert);
+
+        
+        $delete1="DELETE FROM client WHERE no_pemesanan='$nopayment'";
+        $delete="DELETE FROM checkin WHERE no_pemesanan='$nopayment'";
+        mysqli_query($koneksi, $delete);
+        mysqli_query($koneksi, $delete1);
+        if($result3){
+            header("location: checkout.php");
+        }
+        elseif(!$result3){
+            echo "<script>
+            alert('Nomor Pembayaran Tidak ada!');
+            window.location.href = 'checkout.php';
+            </script>";
+        }
+    }
 
     
-    $delete1="DELETE FROM client WHERE no_pemesanan='$nopayment'";
-    $delete="DELETE FROM checkin WHERE no_pemesanan='$nopayment'";
-    $result4=mysqli_query($koneksi, $delete);
-    $result5=mysqli_query($koneksi, $delete1);
-    header("location: checkout.php");
 }
-
-$var=$result->num_rows;
 $num=0;
 ?>
 
@@ -100,7 +125,6 @@ $num=0;
                         </a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="">Profile</a>
-                            <a class="dropdown-item" href="">Room in use</a>
                             <a class="dropdown-item" href="adminlogout.php">Logout</a>
                         </div>
                     </li>
@@ -122,7 +146,7 @@ $num=0;
                 </div>
                 <div class="col">
                     <a class="btn btn-primary" href="checkin.php" role="button">Check In</a>
-                    <a class="btn btn-primary" href="checkout.php" role="button">Check Out</a>
+                    <a class="btn btn-primary active" href="checkout.php" role="button">Check Out</a>
                 </div>
             </div>
         </div>

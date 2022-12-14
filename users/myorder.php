@@ -27,9 +27,15 @@ if($result->num_rows>0){
 
 if(isset($_POST["delete"])){
     $sql2="DELETE FROM client WHERE nik='$nik'";
+    $sql3="DELETE FROM checkin WHERE nik='$nik'";
     mysqli_query($koneksi, $sql2);
+    mysqli_query($koneksi, $sql3);
     header("location: myorder.php");
 }
+
+$cekcekin="SELECT * FROM checkin WHERE nik='$nik'";
+$result2=mysqli_query($koneksi, $cekcekin);
+$cekorder=mysqli_fetch_assoc($result2);
 
 ?>
 
@@ -62,9 +68,6 @@ if(isset($_POST["delete"])){
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="../index.php">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="facilities.php">Facilities</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
@@ -144,7 +147,7 @@ if(isset($_POST["delete"])){
                 </div>
                 <div class="col" align="right">
                     <form action="" method="post">
-                        <input class="btn btn-primary" type="submit" name="delete" value="Cancel Order">
+                        <input class="btn btn-primary" type="submit" name="delete" value="Cancel Order" <?php if($cekorder){echo"disabled";}?>>
                     </form>
                 </div>
             </div><br>

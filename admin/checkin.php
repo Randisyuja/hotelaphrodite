@@ -19,9 +19,24 @@ $result1=mysqli_query($koneksi, $sql1);
 
 if(isset($_POST["submit"])){
     $nopayment=$_POST["nopayment"];
+
+    if(!$nopayment){
+        echo "<script>
+        alert('Masukkan nomor pembayaran');
+        window.location.href = 'checkin.php';
+        </script>";
+    }
+
     $sql2="SELECT * FROM client WHERE no_pemesanan='$nopayment'";
     $result2=mysqli_query($koneksi, $sql2);
     $cekin=mysqli_fetch_assoc($result2);
+
+    if(!$cekin){
+        echo "<script>
+        alert('Tidak ada nomor pembayaran');
+        window.location.href = 'checkin.php';
+        </script>";
+    }
     
     $branch=$cekin["branch"];
     $kode_kamar=$cekin["kode_kamar"];
@@ -35,12 +50,17 @@ if(isset($_POST["submit"])){
     $nama=$cekin["nama"];
     $nohp=$cekin["nohp"];
 
-    $insert="INSERT INTO checkin VALUES ('$nopayment', '$branch', '$kode_kamar', '$tipe_kamar', '$harga', '$cekin1', '$cekout', '$duration', '$total', '$nik', '$nama', '$nohp')";
-    $result3=mysqli_query($koneksi, $insert);
-    if($result3){
-        header("location: checkin.php");
-    }else{
-        header("location: admin.php");
+    if($cekin){
+        $insert="INSERT INTO checkin VALUES ('$nopayment', '$branch', '$kode_kamar', '$tipe_kamar', '$harga', '$cekin1', '$cekout', '$duration', '$total', '$nik', '$nama', '$nohp')";
+        $result3=mysqli_query($koneksi, $insert);
+        if($result3){
+            header("location: checkin.php");
+        }elseif(!$result3){
+            echo "<script>
+            alert('Nomor Pembayaran Tidak ada!');
+            window.location.href = 'checkin.php';
+            </script>";
+    }
     }
 }
 
@@ -98,7 +118,6 @@ $num=0;
                         </a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="">Profile</a>
-                            <a class="dropdown-item" href="">Room in use</a>
                             <a class="dropdown-item" href="adminlogout.php">Logout</a>
                         </div>
                     </li>
@@ -119,7 +138,7 @@ $num=0;
 
                 </div>
                 <div class="col">
-                    <a class="btn btn-primary" href="checkin.php" role="button">Check In</a>
+                    <a class="btn btn-primary active" href="checkin.php" role="button">Check In</a>
                     <a class="btn btn-primary" href="checkout.php" role="button">Check Out</a>
                 </div>
             </div>
