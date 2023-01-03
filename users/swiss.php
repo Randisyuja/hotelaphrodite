@@ -106,7 +106,7 @@ $username1=$_SESSION["name"];
                         <div><?php echo $row["deskripsi"];?></div>
                     </div>
                     <div class="col align-self-center">
-                        <p class="text-center">Rp<?php echo $row["harga"];?></p>
+                        <p class="text-center">$<?php echo $row["harga"];?></p>
                         <input type="hidden" name="branch" value="swiss">
                         <button class="btn btn-primary" type="submit" value="<?php echo $row["kode_kamar"];?>" name="booknow">Book Now</button>
                     </div>

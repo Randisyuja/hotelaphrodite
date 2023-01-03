@@ -91,7 +91,7 @@ if (isset($_POST["booknow"])){
         </nav>
         <br><br><br><br>
         <div class="container" style="border-radius:15px;">
-        <form action="payment.php" method="post">
+        <form action="ppayment.php" method="post">
             <div class="row" style="background-color:lightgrey; border-radius:15px;">
                 <div class="col-sm">
                     <img class="img-fluid" src="../img/<?php echo $row["image"];?>" style="margin-top:15px; margin-bottom:15px; padding:10px;padding-top:10px; background-color:lightgrey;border:0; border-radius:20px; width:400px; height:200px;  ">

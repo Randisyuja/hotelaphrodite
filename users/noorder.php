@@ -24,12 +24,6 @@ if($result->num_rows>0){
 }else{
     echo "<script>alert('Anda belum memiliki pesanan')</script>";
 }
-
-if(isset($_POST["delete"])){
-    $sql2="DELETE FROM client WHERE nik='$nik'";
-    mysqli_query($koneksi, $sql2);
-}
-
 ?>
 
 <!DOCTYPE html>

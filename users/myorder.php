@@ -11,6 +11,7 @@ if ($name==$name0){
     header("Location: login.php");
 }
 
+//menampilkan pesanan
 $sql="SELECT * FROM client WHERE nik='$nik'";
 $result=mysqli_query($koneksi, $sql);
 if($result->num_rows>0){
@@ -21,18 +22,16 @@ if($result->num_rows>0){
     $sql1="SELECT * FROM $branch WHERE kode_kamar='$kode_kamar'";
     $result1=mysqli_query($koneksi, $sql1);
     $kamar=mysqli_fetch_assoc($result1);
+
+    $sql2="SELECT * FROM accounts WHERE nik='$nik'";
+    $result2=mysqli_query($koneksi, $sql2);
+    $account=mysqli_fetch_assoc($result2);
+    $email=$account["email"];
 }else{
     header("location: noorder.php");
 }
 
-if(isset($_POST["delete"])){
-    $sql2="DELETE FROM client WHERE nik='$nik'";
-    $sql3="DELETE FROM checkin WHERE nik='$nik'";
-    mysqli_query($koneksi, $sql2);
-    mysqli_query($koneksi, $sql3);
-    header("location: myorder.php");
-}
-
+//parameter ketika pelanggan sudah checkin maka tidak bisa cancel order
 $cekcekin="SELECT * FROM checkin WHERE nik='$nik'";
 $result2=mysqli_query($koneksi, $cekcekin);
 $cekorder=mysqli_fetch_assoc($result2);
@@ -146,7 +145,9 @@ $cekorder=mysqli_fetch_assoc($result2);
 
                 </div>
                 <div class="col" align="right">
-                    <form action="" method="post">
+                    <form action="../cancel.php" method="post">
+                        <input type="hidden" name="name" value="<?php echo $name0;?>">
+                        <input type="hidden" name="email" value="<?php echo $email;?>">
                         <input class="btn btn-primary" type="submit" name="delete" value="Cancel Order" <?php if($cekorder){echo"disabled";}?>>
                     </form>
                 </div>

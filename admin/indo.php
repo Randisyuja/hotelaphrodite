@@ -96,19 +96,22 @@ if (isset($_POST['delete'])) {
         <br><br><br><br>
         <div class="container" style="background-color:lightgrey; border-radius:15px;">
             <form action="" method="post">
-                <div class="row">
+                <div class="row" style="border:25px solid lightgrey; border-radius:35px; background-color:darkgrey;">
                     <div class="col align-self-center">
                         <div id="image1"></div>
                         <input type="file" name="image"  id="image">
                     </div>
                     <div class="col align-self-center">
                         <br>
-                        <input type="text" placeholder="Room Type" name="tipekamar">
-                        <div><input type="text" placeholder="Description" name="desc"></div>
-                        <div><input type="text" placeholder="Room Code" name="kodekamar"></div>
+                        <input type="text" placeholder="Room Type" name="tipekamar" style="border:1px solid white; border-radius:5px;">
+                        <br><br>
+                        <div><input type="text" placeholder="Description" name="desc" style="border:1px solid white; border-radius:5px;"></div>
+                        <br>
+                        <div><input type="text" placeholder="Room Code" name="kodekamar" style="border:1px solid white; border-radius:5px;"></div>
+                        <br>
                     </div>
                     <div class="col align-self-center">
-                        <input type="number" placeholder="Price" name="harga">
+                        <input type="number" placeholder="Price" name="harga" style="border:1px solid white; border-radius:5px;">
                         <button class="btn btn-primary" type="submit" name="submit">Input</button>
                     </div>
                 </div>
@@ -125,7 +128,7 @@ if (isset($_POST['delete'])) {
                             <pre><?php echo $row["deskripsi"];?></pre>
                         </div>
                         <div class="col align-self-center">
-                            <p class="text-center"><?php echo $row["harga"];?></p>
+                            <p class="text-center">$<?php echo $row["harga"];?></p>
                             <div align="center">
                                 <form action=updateroom.php method="get">
                                     <input type="hidden" value="<?php echo $branch;?>" name="branch">
