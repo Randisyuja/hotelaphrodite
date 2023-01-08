@@ -99,5 +99,42 @@ $username1=$_SESSION["name"];
                 <span class="sr-only">Next</span>
             </button>
         </div>
+        <section class="bg-white" id="profile">
+            <div class="container text-center"><br><br>
+                <div class="row">
+                    <div class="col">
+                        <img src="img/HK.png" class="img-thumbnail" alt="logo hotel kami" style="border-radius:30px; border:0px solid white;">
+                    </div>
+                    <div class="col-9">
+                        <h2>About Us</h2><hr>
+                        <div>Halo nama saya Randi Syuja dengan NIM (2170231084).<br>Saya mahasiswa Teknik Informatika Fakultas Teknik Universitas Krisnwadwipayana</div>
+                    </div>
+                </div>
+            </div><br><br>
+        </section><br><br>
+        <section class="bg-secondary" id="pendidikan">
+            <br>
+            <h2 class="text-center text-light">Facilities</h2>
+            <div class="container text-center">
+                <hr><br>
+                <div class="row">
+                    <div class="col">
+                        <img src="img/pool.jpg" class="img-fluid" alt="..." style="border-radius:15px;">
+                    </div>
+                    <div class="col-7">
+                    d
+                    </div>
+                </div><br><br><br>
+                <div class="row">
+                    <div class="col">
+                        d
+                    </div>
+                    <div class="col-5">
+                        <img src="img/pool.jpg" class="img-fluid" alt="..." style="border-radius:15px;">
+                    </div>
+                </div>
+            </div>
+            <br><br>
+        </section>
     </body>
 </html>

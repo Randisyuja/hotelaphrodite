@@ -25,7 +25,6 @@ if(isset($_POST["delete"])){
 
     $name=$_POST['name'];
     $email=$_POST['email'];
-    echo $email;
     //Server settings
     // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
     $mail->isSMTP();                                            //Send using SMTP
@@ -50,7 +49,7 @@ if(isset($_POST["delete"])){
     //Content
     $mail->isHTML(true);                                  //Set email format to HTML
     $mail->Subject = 'Pembatalan Pesanan Hotel Kami';
-    $mail->Body    = '<b>Halo, terima kasih sudah menggunakan jasa Hotel Kami</b>';
+    $mail->Body    = '<b>Halo '.$name.', terima kasih sudah menggunakan jasa Hotel Kami</b>';
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
     if($mail->send()){

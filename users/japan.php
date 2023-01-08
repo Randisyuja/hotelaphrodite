@@ -81,7 +81,7 @@ $username1=$_SESSION["name"];
                     <div class="col">
                         <br>
                         <input type="date" name="cekin" style="border:1px solid darkgrey; border-radius:30px; padding-left:30px; padding-right:30px;" required>
-                        <select style="border:1px solid darkgrey; border-radius:30px;" name="duration" id="duration">
+                        <select style="border:1px solid darkgrey; border-radius:30px;" name="duration" id="duration" required>
                             <option value="" selected disabled>-- Duration --</option>
                             <option value="1">1 Night</option>
                             <option value="2">2 Nights</option>
